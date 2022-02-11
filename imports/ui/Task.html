@@ -1,0 +1,18 @@
+<template name="task">
+    <li>
+       
+        <div>
+            <input type="checkbox" checked="{{isChecked}}" class="toggle-checked" />
+            <span class="taskItem">{{text}}</span>
+            <button class="delete">&times;</button>
+        </div>
+        
+        <span class="info"><b>createdAt: {{getCreatedDate}}</b></span>
+        <span class="info"><b>Priority: <span id="colorset">{{getPriority}}</span></b></span>
+        
+        
+
+        
+
+    </li>
+</template>

@@ -1,0 +1,85 @@
+<body>
+    <!-- {{> mainContainer }} -->
+    <div class="app">
+    {{> headbar}}
+    </div>
+</body>
+
+<template name="mainContainer">
+    <div class="main">
+                <div class="user">
+                    {{getUser.username}} 🚪
+                </div>
+                    {{> form }}
+    
+                <div class="settings">
+    
+                    {{> Sort_By}}
+                    <div class="filter">
+                    
+                        <button id="hide-completed-button">
+                            {{#if hideCompleted}}
+                            Show All
+                            {{else}}
+                            Hide Completed
+                            {{/if}}
+                        </button>
+    
+                       <form class="search-form">
+                            <input type="search" id="searchbar" placeholder="search">
+                            
+                            <button type="submit" id="searchButton"><i class="fa fa-search"></i></button>
+                       </form>
+    
+                    </div>
+    
+                    
+    
+                </div>
+                
+                {{#if isLoading}}
+                    <div class="loading">loading...</div>
+                {{/if}}
+                <ul class="tasks">
+                    {{#each tasks}}
+                    {{> task}}
+                    {{/each}}
+                </ul>
+    
+    
+
+            </div>
+    
+</template>
+
+
+<template name="form">
+    <form class="task-form">
+        <label for="Task">Enter Task</label>
+        <input type="text" placeholder="Type to add new task" class="taskInput" id="Task" required>
+
+        <label for="Priority">Choose Priority</label>
+        <select id="Priority">
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high</option>
+        </select>
+
+        <button type="submit"  class="addTask">Add Task</button>
+
+    </form>
+
+</template>
+
+<template name="headbar">
+
+    <header>
+        <div class="app-bar">
+            <div class="app-header">
+                <h1>📝️ To Do List{{incompleteCount}}</h1>
+            </div>
+        </div>
+    </header>
+
+
+</template>
